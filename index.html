@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprendre le NLP (Traitement du Langage Naturel)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Traitement du Langage Naturel (NLP)</h1>
+            <p class="subtitle">Comprendre comment les machines interprètent le langage humain</p>
+        </header>
+        
+        <div class="content">
+            <div class="definition">
+                <h2>Qu'est-ce que le NLP ?</h2>
+                <p>Le <strong>Traitement du Langage Naturel</strong> (NLP pour Natural Language Processing) est un domaine de l'intelligence artificielle qui se concentre sur l'interaction entre les ordinateurs et le langage humain.</p>
+                
+                <div class="highlight">
+                    <p>Le NLP permet aux machines de <strong>comprendre, interpréter et générer</strong> du langage humain de manière pertinente.</p>
+                </div>
+                
+                <p>Contrairement aux langages de programmation qui sont structurés et précis, le langage humain est ambigu, contextuel et rempli de nuances. Le NLP relève le défi de traduire ce langage naturel en données compréhensibles par les machines.</p>
+            </div>
+            
+            <div class="applications">
+                <h2>Applications du NLP</h2>
+                <p>Le NLP est présent dans de nombreuses technologies que nous utilisons quotidiennement :</p>
+                
+                <div class="applications-grid">
+                    <div class="app-card">
+                        <h3>Assistants vocaux</h3>
+                        <p>Siri, Alexa, Google Assistant utilisent le NLP pour comprendre les commandes vocales.</p>
+                    </div>
+                    
+                    <div class="app-card">
+                        <h3>Traduction automatique</h3>
+                        <p>Google Translate et autres services de traduction utilisent des modèles NLP avancés.</p>
+                    </div>
+                    
+                    <div class="app-card">
+                        <h3>Chatbots</h3>
+                        <p>Les assistants conversationnels qui interagissent avec les clients.</p>
+                    </div>
+                    
+                    <div class="app-card">
+                        <h3>Analyse de sentiments</h3>
+                        <p>Déterminer l'opinion ou l'émotion exprimée dans un texte.</p>
+                    </div>
+                    
+                    <div class="app-card">
+                        <h3>Résumé automatique</h3>
+                        <p>Générer des résumés cohérents à partir de documents longs.</p>
+                    </div>
+                    
+                    <div class="app-card">
+                        <h3>Correction orthographique</h3>
+                        <p>Les correcteurs grammaticaux et orthographiques comme Grammarly.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="how-it-works">
+                <h2>Comment fonctionne le NLP ?</h2>
+                <p>Le traitement du langage naturel implique plusieurs étapes pour transformer le langage humain en données structurées :</p>
+                
+                <div class="nlp-process">
+                    <div class="process-connector"></div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon">1</div>
+                        <h3>Tokenisation</h3>
+                        <p>Découpage du texte en mots ou phrases (jetons)</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon">2</div>
+                        <h3>Analyse grammaticale</h3>
+                        <p>Identification de la nature des mots et de la structure des phrases</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon">3</div>
+                        <h3>Compréhension</h3>
+                        <p>Extraction du sens et de l'intention derrière le texte</p>
+                    </div>
+                </div>
+                
+                <p>Les techniques modernes de NLP utilisent souvent des réseaux de neurones profonds et des modèles de langage entraînés sur d'énormes volumes de données textuelles.</p>
+            </div>
+            
+            <div class="demo">
+                <h2>Démonstration simple</h2>
+                <p>Essayez notre démonstration simplifiée de traitement de texte avec NLP :</p>
+                
+                <div class="demo-area">
+                    <textarea id="inputText" placeholder="Tapez une phrase ici...">Le traitement du langage naturel est fascinant !</textarea>
+                    <button onclick="processText()">Analyser le texte</button>
+                    
+                    <div class="result" id="result">
+                        <p>Les résultats de l'analyse apparaîtront ici.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 - Explication interactive sur le Traitement du Langage Naturel (NLP)</p>
+        </footer>
+    </div>
+
+    <script>
+        function processText() {
+            const inputText = document.getElementById('inputText').value;
+            const resultDiv = document.getElementById('result');
+            
+            // Simulation simple d'analyse NLP
+            const wordCount = inputText.split(' ').length;
+            const charCount = inputText.length;
+            const containsQuestion = inputText.includes('?');
+            const sentiment = analyzeSentiment(inputText);
+            
+            // Générer des mots-clés (simplifié)
+            const keywords = extractKeywords(inputText);
+            
+            resultDiv.innerHTML = `
+                <p><strong>Nombre de mots:</strong> ${wordCount}</p>
+                <p><strong>Nombre de caractères:</strong> ${charCount}</p>
+                <p><strong>Type de phrase:</strong> ${containsQuestion ? 'Question' : 'Déclarative'}</p>
+                <p><strong>Sentiment détecté:</strong> ${sentiment}</p>
+                <p><strong>Mots-clés:</strong> ${keywords.join(', ')}</p>
+            `;
+        }
+        
+        function analyzeSentiment(text) {
+            // Analyse de sentiment simplifiée
+            const positiveWords = ['bon', 'excellent', 'génial', 'super', 'fascinant', 'formidable', 'agréable'];
+            const negativeWords = ['mauvais', 'terrible', 'horrible', 'nul', 'décevant', 'triste'];
+            
+            let positiveCount = 0;
+            let negativeCount = 0;
+            
+            positiveWords.forEach(word => {
+                if (text.toLowerCase().includes(word)) positiveCount++;
+            });
+            
+            negativeWords.forEach(word => {
+                if (text.toLowerCase().includes(word)) negativeCount++;
+            });
+            
+            if (positiveCount > negativeCount) return 'Positif 😊';
+            if (negativeCount > positiveCount) return 'Négatif 😞';
+            return 'Neutre 😐';
+        }
+        
+        function extractKeywords(text) {
+            // Extraction de mots-clés simplifiée
+            const commonWords = ['le', 'la', 'les', 'un', 'une', 'des', 'est', 'sont', 'dans', 'avec', 'pour', 'sur'];
+            const words = text.toLowerCase().replace(/[^\w\s]/g, '').split(' ');
+            
+            return words.filter(word => 
+                word.length > 3 && !commonWords.includes(word)
+            ).slice(0, 5);
+        }
+    </script>
+</body>
+</html>
